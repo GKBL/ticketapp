@@ -1,25 +1,8 @@
-ticket-processing-system
-├── src
-│   ├── main.cpp
-│   ├── ticket
-│   │   ├── ticket.hpp
-│   │   └── ticket.cpp
-│   ├── processor
-│   │   ├── processor.hpp
-│   │   └── processor.cpp
-│   ├── validators
-│   │   ├── input_validator.hpp
-│   │   └── input_validator.cpp
-│   ├── reports
-│   │   ├── report_generator.hpp
-│   │   └── report_generator.cpp
-│   └── utils
-│       ├── id_generator.hpp
-│       └── id_generator.cpp
-├── tests
-│   ├── ticket_tests.cpp
-│   ├── processor_tests.cpp
-│   └── validator_tests.cpp
-├── CMakeLists.txt
-├── .gitignore
-└── README.md
+#include "processor.hpp"
+#include <iostream>
+
+// Method to create a new ticket
+void TicketProcessor::createTicket(int id, double fare, const std::string& product, char route) {
+    Ticket newTicket(id, fare, product, route);
+    tickets.push_back(newTicket);
+}
