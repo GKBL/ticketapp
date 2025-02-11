@@ -1,25 +1,16 @@
-ticket-processing-system
-├── src
-│   ├── main.cpp
-│   ├── ticket
-│   │   ├── ticket.hpp
-│   │   └── ticket.cpp
-│   ├── processor
-│   │   ├── processor.hpp
-│   │   └── processor.cpp
-│   ├── validators
-│   │   ├── input_validator.hpp
-│   │   └── input_validator.cpp
-│   ├── reports
-│   │   ├── report_generator.hpp
-│   │   └── report_generator.cpp
-│   └── utils
-│       ├── id_generator.hpp
-│       └── id_generator.cpp
-├── tests
-│   ├── ticket_tests.cpp
-│   ├── processor_tests.cpp
-│   └── validator_tests.cpp
-├── CMakeLists.txt
-├── .gitignore
-└── README.md
+#include "processor.hpp"
+// ...existing code...
+
+void TicketProcessor::processTicket(Ticket& ticket) {
+    // Validate the ticket
+    if (!InputValidator::validate(ticket)) {
+        throw std::invalid_argument("Invalid ticket data");
+    }
+
+    // Apply some processing logic, e.g., calculate final price
+    double basePrice = ticket.getBasePrice();
+    double discount = ticket.getDiscount();
+    double finalPrice = basePrice - (basePrice * discount / 100);
+    ticket.setFinalPrice(finalPrice);
+}
+// ...existing code...
