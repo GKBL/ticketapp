@@ -13,10 +13,7 @@ private:
 public:
     TicketProcessor();
 
-    void TicketProcessor::createTicket(int id, double fare, const std::string& product, char route) {
-        Ticket newTicket(id, fare, product, route);
-        tickets.push_back(newTicket);
-    }
+    void createTicket(int id, double fare, const std::string& product, char route);
     void processTicket(Ticket& ticket);
     void applyDiscount(Ticket& ticket, double discountPercentage);
 };
